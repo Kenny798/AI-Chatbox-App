@@ -1,17 +1,15 @@
 import requests
 import json
 import streamlit as st
-from dotenv import load_dotenv
 import os
 
-load_dotenv()
+# Streamlit automatically handles secrets, so no need for dotenv
 
 BASE_API_URL = "https://api.langflow.astra.datastax.com"
 LANGFLOW_ID = "b1d0b075-93a0-4a76-96d8-4ebddd02017d"
 FLOW_ID = "dcf9c611-857d-493a-b822-aa8d0a2437cd"
-APPLICATION_TOKEN = os.environ.get("APP_TOKEN")
-ENDPOINT = "default"  
-
+APPLICATION_TOKEN = st.secrets["APP_TOKEN"]  # Access token from Streamlit secrets
+ENDPOINT = "default"
 
 # API function
 def run_flow(message: str, input_type: str = "chat", output_type: str = "chat") -> dict:
