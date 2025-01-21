@@ -12,8 +12,6 @@ FLOW_ID = "dcf9c611-857d-493a-b822-aa8d0a2437cd"
 APPLICATION_TOKEN = os.environ.get("APP_TOKEN")
 ENDPOINT = "default"  
 
-if not APPLICATION_TOKEN:
-    raise EnvironmentError("APP_TOKEN environment variable is not set.")
 
 # API function
 def run_flow(message: str, input_type: str = "chat", output_type: str = "chat") -> dict:
